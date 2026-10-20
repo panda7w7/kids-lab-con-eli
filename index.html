@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kids Lab con Eli</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div id="decor" aria-hidden="true"></div>
+
+  <!-- 1. BIENVENIDA -->
+  <main id="bienvenida" class="pantalla activa">
+    <img class="logo" src="img/logo.png" alt="Kids Lab con Eli">
+    <p class="subtitulo">¡Hola! Toca a cada amigo para conocerlo</p>
+    <div class="equipo" id="equipo"></div>
+    <div class="globo" id="globo" aria-live="polite"></div>
+    <button class="boton grande" id="btnEntrar" data-tone="660">¡Entrar al laboratorio!</button>
+  </main>
+
+  <!-- 2. PERFIL (sin correo ni contraseña) -->
+  <main id="perfil" class="pantalla">
+    <h2>¿Quién va a jugar?</h2>
+    <input id="apodo" maxlength="12" placeholder="Escribe tu apodo" autocomplete="off">
+    <p class="subtitulo">Elige tu compañero favorito</p>
+    <div class="avatares" id="avatares"></div>
+    <button class="boton grande" id="btnEmpezar" data-tone="784">¡Empezar!</button>
+  </main>
+
+  <!-- 3. MAPA DE NIVELES -->
+  <main id="mapa" class="pantalla">
+    <h2 id="saludo"></h2>
+    <div class="niveles">
+      <section class="nivel">
+        <h3>⭐ Nivel 1: Conociendo la tecnología</h3>
+        <button class="boton juego" data-tone="523" data-msg="¡Pronto jugaremos a armar un computador!">💻 Partes del computador</button>
+        <button class="boton juego" data-tone="587" data-msg="¡Pronto descubriremos qué es una red!">🌐 ¿Qué es una red?</button>
+        <button class="boton juego" data-tone="659" data-msg="¡Pronto enviaremos un mensaje por la red!">✉️ Mensaje de Robin a Eli</button>
+      </section>
+      <section class="nivel bloqueado">
+        <h3>🔒 Nivel 2: Próximamente</h3>
+        <p>Completa el Nivel 1 para abrirlo</p>
+      </section>
+    </div>
+    <button class="boton chico" id="btnSalir" data-tone="392">Cambiar jugador</button>
+  </main>
+
+  <!-- AYUDANTE BIT -->
+  <div id="bit" class="oculto" role="button" tabindex="0" aria-label="Bit, el robot ayudante">
+    <div class="pista" id="pista"></div>
+    <svg viewBox="0 0 120 130" width="110" height="120" aria-hidden="true">
+      <line x1="60" y1="8" x2="60" y2="22" stroke="#5b6b8c" stroke-width="4"/>
+      <circle cx="60" cy="7" r="6" fill="#ffd23f"/>
+      <rect x="22" y="22" width="76" height="56" rx="26" fill="#fff" stroke="#c9d6ee" stroke-width="3"/>
+      <rect x="31" y="32" width="58" height="36" rx="16" fill="#0f1e3d"/>
+      <path d="M42 50 q6 -9 12 0" stroke="#3de3ff" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <path d="M66 50 q6 -9 12 0" stroke="#3de3ff" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <path d="M50 58 q10 8 20 0" stroke="#3de3ff" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+      <rect x="34" y="82" width="52" height="36" rx="14" fill="#fff" stroke="#c9d6ee" stroke-width="3"/>
+      <rect x="46" y="90" width="28" height="20" rx="6" fill="#2f7bff"/>
+      <circle cx="60" cy="100" r="6" fill="#ffd23f"/>
+      <circle cx="22" cy="96" r="8" fill="#2f7bff"/><circle cx="98" cy="96" r="8" fill="#2f7bff"/>
+    </svg>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

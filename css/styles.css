@@ -1,0 +1,56 @@
+:root{--rosa:#ff4fa3;--celeste:#25c6ff;--amarillo:#ffc400;--morado:#8a3ffc;--menta:#19d3a2;--oscuro:#2a1458;}
+*{box-sizing:border-box;margin:0}
+html,body{height:100%}
+body{font-family:'Fredoka','Trebuchet MS',sans-serif;color:#fff;overflow-x:hidden;
+  background:linear-gradient(rgba(42,20,88,.55),rgba(42,20,88,.75)),url(../img/laboratorio.jpg) center/cover fixed;}
+#decor{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+.flota{position:absolute;bottom:-60px;font-weight:700;opacity:.8;animation:sube linear infinite;text-shadow:0 3px 0 rgba(0,0,0,.25)}
+@keyframes sube{to{transform:translateY(-115vh) rotate(360deg)}}
+
+.pantalla{display:none;position:relative;z-index:1;min-height:100vh;padding:20px 14px 90px;
+  flex-direction:column;align-items:center;gap:14px;text-align:center}
+.pantalla.activa{display:flex;animation:entra .6s cubic-bezier(.2,1.4,.4,1)}
+@keyframes entra{from{opacity:0;transform:scale(.85) translateY(30px)}}
+h2{font-size:clamp(1.8rem,5vw,2.8rem);text-shadow:0 4px 0 var(--oscuro)}
+h3{font-size:1.3rem;margin-bottom:10px}
+.subtitulo{font-size:1.2rem;text-shadow:0 2px 0 var(--oscuro)}
+
+.logo{width:min(620px,90vw);animation:rebote 2.8s ease-in-out infinite;filter:drop-shadow(0 8px 10px rgba(0,0,0,.35))}
+@keyframes rebote{50%{transform:translateY(-12px) rotate(-1.5deg)}}
+
+.equipo,.avatares{display:flex;flex-wrap:wrap;justify-content:center;align-items:flex-end;gap:clamp(8px,3vw,36px)}
+.personaje{background:none;border:0;cursor:pointer;position:relative;transition:transform .2s;animation:flotar 3s ease-in-out infinite}
+.personaje:nth-child(2){animation-delay:-.7s}.personaje:nth-child(3){animation-delay:-1.4s}.personaje:nth-child(4){animation-delay:-2.1s}
+.personaje img{height:clamp(150px,28vh,260px);filter:drop-shadow(0 10px 8px rgba(0,0,0,.4));display:block}
+.personaje:hover{transform:scale(1.08)}
+.personaje.salta{animation:salto .8s ease}
+.personaje span{display:block;font-weight:700;font-size:1.2rem;text-shadow:0 2px 0 var(--oscuro)}
+@keyframes flotar{50%{transform:translateY(-14px)}}
+@keyframes salto{30%{transform:translateY(-50px) scale(1.12,.92)}55%{transform:translateY(0) scale(.93,1.08)}75%{transform:translateY(-14px)}}
+.avatares .personaje img{height:clamp(110px,20vh,170px)}
+.avatares .personaje.elegido{outline:6px solid var(--amarillo);outline-offset:4px;border-radius:24px;background:rgba(255,255,255,.18)}
+
+.globo{min-height:72px;max-width:min(560px,92vw);background:#fff;color:var(--oscuro);border-radius:26px;padding:14px 20px;
+  font-size:1.2rem;font-weight:500;box-shadow:0 6px 0 var(--morado);opacity:0;transform:scale(.8);transition:.25s}
+.globo.ver{opacity:1;transform:scale(1)}
+
+.boton{font-family:inherit;font-weight:700;cursor:pointer;border:0;border-radius:999px;color:#fff;background:linear-gradient(var(--rosa),#e0307f);
+  box-shadow:0 8px 0 #a3175a,0 12px 14px rgba(0,0,0,.3);transition:transform .1s,box-shadow .1s}
+.boton:hover{transform:translateY(-3px)}
+.boton:active{transform:translateY(6px);box-shadow:0 2px 0 #a3175a}
+.boton.grande{font-size:1.6rem;padding:18px 36px;animation:latido 1.6s infinite}
+.boton.chico{font-size:1rem;padding:10px 22px;background:linear-gradient(var(--celeste),#0a9bd6);box-shadow:0 6px 0 #06688f}
+.boton.juego{display:block;width:100%;font-size:1.3rem;padding:18px;margin-bottom:16px;background:linear-gradient(var(--menta),#0aa37b);box-shadow:0 8px 0 #07755a}
+@keyframes latido{50%{transform:scale(1.06)}}
+input{font-family:inherit;font-size:1.5rem;text-align:center;padding:14px 20px;border-radius:999px;border:5px solid var(--amarillo);width:min(340px,90vw);color:var(--oscuro)}
+
+.niveles{display:grid;gap:20px;width:min(560px,94vw)}
+.nivel{background:rgba(255,255,255,.16);backdrop-filter:blur(6px);border-radius:28px;padding:20px;border:4px solid rgba(255,255,255,.5)}
+.nivel.bloqueado{opacity:.6}
+
+#bit{position:fixed;right:14px;bottom:14px;z-index:10;cursor:pointer;display:flex;flex-direction:column;align-items:flex-end;animation:flotar 2.4s ease-in-out infinite}
+#bit.oculto{display:none}
+#bit.aparece{animation:flotar 2.4s ease-in-out infinite,aparece .6s cubic-bezier(.2,1.5,.4,1)}
+@keyframes aparece{from{transform:translateY(150px) scale(.4)}}
+.pista{background:#fff;color:var(--oscuro);border-radius:20px;padding:10px 16px;max-width:240px;font-weight:500;box-shadow:0 5px 0 var(--celeste);margin-bottom:6px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
